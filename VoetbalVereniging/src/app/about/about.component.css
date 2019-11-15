@@ -1,0 +1,19 @@
+.info-card {
+    background-color: rgba(118, 163, 55, 0.2);
+}
+
+.mat-list {
+    border: thin solid rgba(118, 163, 55, 1);;
+    padding: 1% 1% 1% 1%;
+}
+
+.usecase {
+    border: thin solid rgba(0, 0, 0, 0.5);
+    padding: 1%;
+    margin-bottom: 5%;
+    text-align: left;
+}
+
+.title {
+    background-color: rgba(118, 163, 55, 0.5);
+}
