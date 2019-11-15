@@ -1,0 +1,71 @@
+<html>
+
+<head>
+    <title>VoetbalVereniging</title>
+</head>
+
+<body>
+    <div fxLayout="row" fxLayoutAlign="space-evenly start">
+        <div fxLayout="column" fxFlex="80%">
+            <h1>Over deze applicatie</h1>
+            <p>Deze applicatie is gemaakt in opdracht van het vak 'Client-side web frameworks' op Avans Hogeschool in
+                Breda</p>
+            <h1>VoetbalVereniging</h1>
+            <p>{{ applicationInfo }}</p>
+        </div>
+        <div fxFlex>
+            <mat-card class="info-card">
+                <mat-card-header>
+                    <mat-card-title>Erdem Pekgüzel</mat-card-title>
+                    <mat-card-subtitle>2127361</mat-card-subtitle>
+                </mat-card-header>
+            </mat-card>
+        </div>
+    </div>
+    <h1>Entiteiten</h1>
+    <div fxLayout="row" fxLayoutAlign="space-evenly">
+        <mat-list role="list" *ngFor="let entity of entities; index as i">
+            <p><b>{{ entity.entityName }}</b></p>
+            <mat-list-item role="listItem" *ngFor="let property of entity.properties; index as i">
+                {{ convert(property) }}
+            </mat-list-item>
+        </mat-list>
+    </div>
+    <h1>Use cases</h1>
+    <div fxLayout="column" fxLayoutAlign="">
+        <table class="usecase" *ngFor="let case of cases; index as i">
+            <tr class="title">
+                <th>Naam</th>
+                <td>{{ case.name }}</td>
+            </tr>
+            <tr>
+                <th>Beschrijving</th>
+                <td>{{ case.description }}</td>
+            </tr>
+            <tr>
+                <th>Actor</th>
+                <td>{{ case.actor }}</td>
+            </tr>
+            <tr>
+                <th>Preconditie</th>
+                <td>{{ case.precondition }}</td>
+            </tr>
+            <tr>
+                <th>Scenario</th>
+                <td>
+                    <ol>
+                        <li *ngFor="let scene of case.scenario; index as i">
+                            {{ scene }}
+                        </li>
+                    </ol>
+                </td>
+            </tr>
+            <tr>
+                <th>Postconditie</th>
+                <td>{{ case.postcondition }}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
