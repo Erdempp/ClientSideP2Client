@@ -7,10 +7,10 @@ import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-teams',
-  templateUrl: './team.component.html',
-  styleUrls: ['./team.component.css'],
+  templateUrl: './teams.component.html',
+  styleUrls: ['./teams.component.css'],
 })
-export class TeamComponent implements OnInit {
+export class TeamsComponent implements OnInit {
   teams: Team[];
   currentUser: User;
 

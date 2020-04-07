@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 import { AboutComponent } from './components/about/about.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
-import { TeamComponent } from './components/teams/team.component';
+import { TeamsComponent } from './components/teams/teams.component';
 import { CreateTeamComponent } from './components/teams/create-team/create-team.component';
 import { EditTeamComponent } from './components/teams/edit-team/edit-team.component';
-import { AuthGuard } from './guards/auth.guard';
+import { FieldsComponent } from './components/fields/fields.component';
+import { CreateFieldComponent } from './components/fields/create-field/create-field.component';
+import { EditFieldComponent } from './components/fields/edit-field/edit-field.component';
+import { FieldDetailsComponent } from './components/fields/field-details/field-details.component';
 
 import { PlaceholderComponent } from './components/placeholder/placeholder.component';
 
@@ -18,7 +22,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {
     path: 'teams',
-    component: TeamComponent,
+    component: TeamsComponent,
     canActivate: [AuthGuard],
     children: [{ path: ':id', component: PlaceholderComponent }],
   },
@@ -34,9 +38,23 @@ const routes: Routes = [
   },
   {
     path: 'fields',
-    component: PlaceholderComponent,
+    component: FieldsComponent,
     canActivate: [AuthGuard],
-    children: [{ path: ':id', component: PlaceholderComponent }],
+  },
+  {
+    path: 'fields/:id',
+    component: FieldDetailsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'create-field',
+    component: CreateFieldComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'edit-field',
+    component: EditFieldComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'matches',

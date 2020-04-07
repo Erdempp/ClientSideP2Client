@@ -1,0 +1,47 @@
+<h1>Velden</h1>
+<button (click)="createField()" class="btn btn-success">
+    Nieuw veld aanmaken
+</button>
+<div fxLayout="column" fxLayoutAlign="">
+    <p *ngIf="!fields || fields && !fields.length > 0">
+        Geen velden beschikbaar.
+    </p>
+    <table class="resourceTable" *ngFor="let field of fields; index as i" rules="rows">
+        <tr class="resourceTitle">
+            <th>Naam</th>
+            <td>{{ field.name }}</td>
+        </tr>
+        <tr>
+            <th>Eigenaar</th>
+            <td>{{ field.owner.name }}</td>
+        </tr>
+        <tr>
+            <th>Adres</th>
+            <td>{{ field.location.address }}</td>
+        </tr>
+        <tr>
+            <th>Postcode</th>
+            <td>{{ field.location.postalCode }}</td>
+        </tr>
+        <tr>
+            <th>Lengte</th>
+            <td>{{ field.length }} meter</td>
+        </tr>
+        <tr>
+            <th>Breedte</th>
+            <td>{{ field.width }} meter</td>
+        </tr>
+        <tr>
+            <th>Beschrijving</th>
+            <td>{{ field.description }}</td>
+        </tr>
+        <tr>
+            <th>Opties</th>
+            <td>
+                <button [routerLink]="['/fields', field._id]" class="btn btn-info">Bekijken</button>
+                <button *ngIf="currentUser && currentUser._id === field.owner._id" type="submit" (click)="editField(field)" class="btn btn-warning">Bewerken</button>
+                <button *ngIf="currentUser && currentUser._id === field.owner._id" type="submit" (click)="deleteField(field)" class="btn btn-danger">Verwijderen</button>
+            </td>
+        </tr>
+    </table>
+</div>

@@ -21,7 +21,8 @@ export class CreateTeamComponent implements OnInit {
     this.createForm();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   get form() {
     return this.teamForm.controls;

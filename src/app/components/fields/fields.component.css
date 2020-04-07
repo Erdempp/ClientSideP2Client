@@ -1,4 +1,4 @@
-.team {
+.field {
     border: thin solid rgba(0, 0, 0, 0.5);
     padding: 1%;
     margin-bottom: 5%;
@@ -7,9 +7,4 @@
 
 .title {
     background-color: rgba(118, 163, 55, 0.5);
-}
-
-.btn {
-    margin-bottom: 1%;
-    margin-right: 1%;
 }

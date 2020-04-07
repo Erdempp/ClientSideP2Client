@@ -3,8 +3,11 @@
     Nieuwe team aanmaken
 </button>
 <div fxLayout="column" fxLayoutAlign="">
-    <table class="team" *ngFor="let team of teams; index as i">
-        <tr class="title">
+    <p *ngIf="!teams || teams && !teams.length > 0">
+        Geen teams beschikbaar.
+    </p>
+    <table class="resourceTable" *ngFor="let team of teams; index as i">
+        <tr class="resourceTitle">
             <th>Naam</th>
             <td>{{ team.name }}</td>
         </tr>
@@ -16,7 +19,7 @@
             <th>Coach</th>
             <td>{{ team.coach.name }}</td>
         </tr>
-        <tr>
+        <!-- <tr>
             <th>Spelers</th>
             <td>
                 <ol>
@@ -25,7 +28,7 @@
                     </li>
                 </ol>
             </td>
-        </tr>
+        </tr> -->
         <tr>
             <th>Geslacht</th>
             <td>{{ team.gender }}</td>
