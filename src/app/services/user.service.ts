@@ -9,6 +9,10 @@ import { environment } from '../../environments/environment';
 export class UserService {
   constructor(private http: HttpClient) {}
 
+  getCurrentUser() {
+    return this.http.get<User>(`${environment.api}/users/current`);
+  }
+
   getAll() {
     return this.http.get<User[]>(`${environment.api}/users`);
   }

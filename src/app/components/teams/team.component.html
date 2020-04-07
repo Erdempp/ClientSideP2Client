@@ -34,9 +34,13 @@
             <th>Beschrijving</th>
             <td>{{ team.description }}</td>
         </tr>
-        <tr>
+        <tr *ngIf="currentUser && currentUser._id === team.coach._id">
             <th>Opties</th>
-            <td><button type="submit" (click)="editTeam(team)" class="btn btn-warning">Bewerken</button></td>
+            <td>
+                <button type="submit" (click)="editTeam(team)" class="btn btn-warning">Bewerken</button>
+                <button type="submit" (click)="deleteTeam(team)" class="btn btn-danger">Verwijderen</button>
+            </td>
+            
         </tr>
     </table>
 </div>
