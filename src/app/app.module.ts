@@ -20,6 +20,9 @@ import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
+import { TeamComponent } from './components/teams/team.component';
+import { CreateTeamComponent } from './components/teams/create-team/create-team.component';
+import { EditTeamComponent } from './components/teams/edit-team/edit-team.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { ErrorInterceptor } from './interceptors/error.interceptor';
     NavigationComponent,
     RegisterComponent,
     LoginComponent,
+    TeamComponent,
+    CreateTeamComponent,
+    EditTeamComponent,
   ],
   imports: [
     BrowserModule,

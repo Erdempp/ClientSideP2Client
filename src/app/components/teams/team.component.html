@@ -1,0 +1,42 @@
+<h1>Teams</h1>
+<button (click)="createTeam()" class="btn btn-success">
+    Nieuwe team aanmaken
+</button>
+<div fxLayout="column" fxLayoutAlign="">
+    <table class="team" *ngFor="let team of teams; index as i">
+        <tr class="title">
+            <th>Naam</th>
+            <td>{{ team.name }}</td>
+        </tr>
+        <tr>
+            <th>Stad</th>
+            <td>{{ team.city }}</td>
+        </tr>
+        <tr>
+            <th>Coach</th>
+            <td>{{ team.coach.name }}</td>
+        </tr>
+        <tr>
+            <th>Spelers</th>
+            <td>
+                <ol>
+                    <li *ngFor="let player of team.players; index as i">
+                        {{ player.name }}
+                    </li>
+                </ol>
+            </td>
+        </tr>
+        <tr>
+            <th>Geslacht</th>
+            <td>{{ team.gender }}</td>
+        </tr>
+        <tr>
+            <th>Beschrijving</th>
+            <td>{{ team.description }}</td>
+        </tr>
+        <tr>
+            <th>Opties</th>
+            <td><button type="submit" (click)="editTeam(team)" class="btn btn-warning">Bewerken</button></td>
+        </tr>
+    </table>
+</div>

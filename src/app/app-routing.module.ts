@@ -3,8 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { AboutComponent } from './components/about/about.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
-import { PlaceholderComponent } from './components/placeholder/placeholder.component';
+import { TeamComponent } from './components/teams/team.component';
+import { CreateTeamComponent } from './components/teams/create-team/create-team.component';
+import { EditTeamComponent } from './components/teams/edit-team/edit-team.component';
 import { AuthGuard } from './guards/auth.guard';
+
+import { PlaceholderComponent } from './components/placeholder/placeholder.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/about', pathMatch: 'full' },
@@ -13,9 +18,19 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {
     path: 'teams',
-    component: PlaceholderComponent,
+    component: TeamComponent,
     canActivate: [AuthGuard],
     children: [{ path: ':id', component: PlaceholderComponent }],
+  },
+  {
+    path: 'create-team',
+    component: CreateTeamComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'edit-team',
+    component: EditTeamComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'fields',
