@@ -56,13 +56,17 @@ export class FieldDetailsComponent implements OnInit, OnDestroy {
     });
 
     this.fieldService.get(this.id).subscribe((field) => {
-      this.field = field;
-      if (!this.field) {
+      if (!field) {
         this.router.navigate(['fields']);
+        return;
       }
+      this.field = field;
     });
 
     this.userService.getCurrentUser().subscribe((user) => {
+      if (!user) {
+        return;
+      }
       this.currentUser = user;
     });
   }

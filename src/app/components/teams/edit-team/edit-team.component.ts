@@ -27,7 +27,6 @@ export class EditTeamComponent implements OnInit {
       this.router.navigate(['teams']);
     }
     this.teamService.get(teamId).subscribe((data) => {
-      console.log(data);
       this.teamForm.setValue({
         _id: data._id,
         name: data.name,

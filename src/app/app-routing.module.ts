@@ -5,12 +5,13 @@ import { AboutComponent } from './components/about/about.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { TeamsComponent } from './components/teams/teams.component';
+import { TeamDetailsComponent } from './components/teams/team-details/team-details.component';
 import { CreateTeamComponent } from './components/teams/create-team/create-team.component';
 import { EditTeamComponent } from './components/teams/edit-team/edit-team.component';
 import { FieldsComponent } from './components/fields/fields.component';
+import { FieldDetailsComponent } from './components/fields/field-details/field-details.component';
 import { CreateFieldComponent } from './components/fields/create-field/create-field.component';
 import { EditFieldComponent } from './components/fields/edit-field/edit-field.component';
-import { FieldDetailsComponent } from './components/fields/field-details/field-details.component';
 
 import { PlaceholderComponent } from './components/placeholder/placeholder.component';
 
@@ -24,7 +25,11 @@ const routes: Routes = [
     path: 'teams',
     component: TeamsComponent,
     canActivate: [AuthGuard],
-    children: [{ path: ':id', component: PlaceholderComponent }],
+  },
+  {
+    path: 'teams/:id',
+    component: TeamDetailsComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'create-team',

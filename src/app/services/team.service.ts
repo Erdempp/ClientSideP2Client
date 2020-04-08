@@ -18,6 +18,10 @@ export class TeamService {
     return this.http.post<Team>(`${environment.api}/teams`, { name, city, gender, description });
   }
 
+  addPlayer(id: Team['_id'], player: Team['players'][0]) {
+    return this.http.post<Team>(`${environment.api}/teams/${id}/players`, { playerId: player._id });
+  }
+
   getAll() {
     return this.http.get<Team[]>(`${environment.api}/teams`);
   }

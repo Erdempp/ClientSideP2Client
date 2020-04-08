@@ -19,16 +19,6 @@
             <th>Coach</th>
             <td>{{ team.coach.name }}</td>
         </tr>
-        <!-- <tr>
-            <th>Spelers</th>
-            <td>
-                <ol>
-                    <li *ngFor="let player of team.players; index as i">
-                        {{ player.name }}
-                    </li>
-                </ol>
-            </td>
-        </tr> -->
         <tr>
             <th>Geslacht</th>
             <td>{{ team.gender }}</td>
@@ -37,13 +27,13 @@
             <th>Beschrijving</th>
             <td>{{ team.description }}</td>
         </tr>
-        <tr *ngIf="currentUser && currentUser._id === team.coach._id">
+        <tr>
             <th>Opties</th>
             <td>
-                <button type="submit" (click)="editTeam(team)" class="btn btn-warning">Bewerken</button>
-                <button type="submit" (click)="deleteTeam(team)" class="btn btn-danger">Verwijderen</button>
+                <button [routerLink]="['/teams', team._id]" class="btn btn-info">Bekijken</button>
+                <button *ngIf="currentUser && currentUser._id === team.coach._id" type="submit" (click)="editTeam(team)" class="btn btn-warning">Bewerken</button>
+                <button *ngIf="currentUser && currentUser._id === team.coach._id" type="submit" (click)="deleteTeam(team)" class="btn btn-danger">Verwijderen</button>
             </td>
-            
         </tr>
     </table>
 </div>

@@ -32,6 +32,8 @@ import { CreateFieldComponent } from './components/fields/create-field/create-fi
 import { EditFieldComponent } from './components/fields/edit-field/edit-field.component';
 import { FieldDetailsComponent } from './components/fields/field-details/field-details.component';
 import { FacilityDialogComponent } from './components/fields/field-details/facility-dialog/facility-dialog.component';
+import { TeamDetailsComponent } from './components/teams/team-details/team-details.component';
+import { PlayerDialogComponent } from './components/teams/team-details/player-dialog/player-dialog.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { FacilityDialogComponent } from './components/fields/field-details/facil
     EditFieldComponent,
     FieldDetailsComponent,
     FacilityDialogComponent,
+    TeamDetailsComponent,
+    PlayerDialogComponent,
   ],
   imports: [
     BrowserModule,
