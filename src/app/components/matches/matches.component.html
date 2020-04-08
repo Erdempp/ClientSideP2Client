@@ -1,0 +1,43 @@
+<h1>Wedstrijden</h1>
+<button (click)="createMatch()" class="btn btn-success">
+    Nieuwe wedstrijd aanmaken
+</button>
+<div fxLayout="column" fxLayoutAlign="">
+    <p *ngIf="!matches || matches && !matches.length > 0">
+        Geen wedstrijden beschikbaar.
+    </p>
+    <table class="resourceTable" *ngFor="let match of matches; index as i" rules="rows">
+        <tr class="resourceTitle">
+            <th>Thuisteam</th>
+            <td>{{ match?.homeTeam?.name }}</td>
+        </tr>
+        <tr>
+            <th>Bezoekende team</th>
+            <td>{{ match?.awayTeam?.name }}</td>
+        </tr>
+        <tr>
+            <th>Organiseur</th>
+            <td>{{ match?.organizer?.name }}</td>
+        </tr>
+        <tr>
+            <th>Veld</th>
+            <td>{{ match?.field?.name }}</td>
+        </tr>
+        <tr>
+            <th>Starttijd</th>
+            <td>{{ match?.startDateTime }}</td>
+        </tr>
+        <tr>
+            <th>Eindtijd</th>
+            <td>{{ match?.endDateTime }}</td>
+        </tr>
+        <tr>
+            <th>Opties</th>
+            <td>
+                <button [routerLink]="['/matches', match._id]" class="btn btn-info">Bekijken</button>
+                <button *ngIf="currentUser && currentUser._id === match.organizer._id" type="submit" (click)="editMatch(match)" class="btn btn-warning">Bewerken</button>
+                <button *ngIf="currentUser && currentUser._id === match.organizer._id" type="submit" (click)="deleteMatch(match)" class="btn btn-danger">Verwijderen</button>
+            </td>
+        </tr>
+    </table>
+</div>

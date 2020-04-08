@@ -1,0 +1,31 @@
+<h1>{{ match?.homeTeam.name }}</h1>
+<div fxLayout="column" fxLayoutAlign="">
+    <table class="resourceTable" rules="rows">
+        <tr>
+            <th>Bezoekende team</th>
+            <td>{{ match?.awayTeam?.name }}</td>
+        </tr>
+        <tr>
+            <th>Organiseur</th>
+            <td>{{ match?.organizer?.name }}</td>
+        </tr>
+        <tr>
+            <th>Veld</th>
+            <td>{{ match?.field?.name }}</td>
+        </tr>
+        <tr>
+            <th>Starttijd</th>
+            <td>{{ match?.startDateTime }}</td>
+        </tr>
+        <tr>
+            <th>Eindtijd</th>
+            <td>{{ match?.endDateTime }}</td>
+        </tr>
+        <tr>
+            <th>Opties</th>
+            <td>
+                <button [routerLink]="['/matches']" class="btn btn-info">Terug naar lijst</button>
+            </td>
+        </tr>
+    </table>
+</div>

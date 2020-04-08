@@ -1,0 +1,47 @@
+<h1>{{ field?.name }}</h1>
+<div fxLayout="column" fxLayoutAlign="">
+    <table class="resourceTable" rules="rows">
+        <tr>
+            <th>Eigenaar</th>
+            <td>{{ field?.owner?.name }}</td>
+        </tr>
+        <tr>
+            <th>Adres</th>
+            <td>{{ field?.location?.address }}</td>
+        </tr>
+        <tr>
+            <th>Postcode</th>
+            <td>{{ field?.location?.postalCode }}</td>
+        </tr>
+        <tr>
+            <th>Faciliteiten</th>
+            <td>
+                <ul>
+                    <li *ngFor="let facility of field?.facilities; index as i">
+                        {{ facility }}
+                        <button *ngIf="currentUser && currentUser._id === field?.owner?._id" type="submit" (click)="removeFacility(facility)" class="btn btn-danger">X</button>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>Lengte</th>
+            <td>{{ field?.length }} meter</td>
+        </tr>
+        <tr>
+            <th>Breedte</th>
+            <td>{{ field?.width }} meter</td>
+        </tr>
+        <tr>
+            <th>Beschrijving</th>
+            <td>{{ field?.description }}</td>
+        </tr>
+        <tr>
+            <th>Opties</th>
+            <td>
+                <button *ngIf="currentUser && currentUser._id === field?.owner?._id" type="submit" (click)="openDialog()" class="btn btn-success">Faciliteit toevoegen</button>
+                <button [routerLink]="['/fields']" class="btn btn-info">Terug naar lijst</button>
+            </td>
+        </tr>
+    </table>
+</div>

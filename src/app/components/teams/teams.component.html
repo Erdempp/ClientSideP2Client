@@ -1,0 +1,39 @@
+<h1>Teams</h1>
+<button (click)="createTeam()" class="btn btn-success">
+    Nieuwe team aanmaken
+</button>
+<div fxLayout="column" fxLayoutAlign="">
+    <p *ngIf="!teams || teams && !teams.length > 0">
+        Geen teams beschikbaar.
+    </p>
+    <table class="resourceTable" *ngFor="let team of teams; index as i">
+        <tr class="resourceTitle">
+            <th>Naam</th>
+            <td>{{ team.name }}</td>
+        </tr>
+        <tr>
+            <th>Stad</th>
+            <td>{{ team.city }}</td>
+        </tr>
+        <tr>
+            <th>Coach</th>
+            <td>{{ team.coach.name }}</td>
+        </tr>
+        <tr>
+            <th>Geslacht</th>
+            <td>{{ team.gender }}</td>
+        </tr>
+        <tr>
+            <th>Beschrijving</th>
+            <td>{{ team.description }}</td>
+        </tr>
+        <tr>
+            <th>Opties</th>
+            <td>
+                <button [routerLink]="['/teams', team._id]" class="btn btn-info">Bekijken</button>
+                <button *ngIf="currentUser && currentUser._id === team.coach._id" type="submit" (click)="editTeam(team)" class="btn btn-warning">Bewerken</button>
+                <button *ngIf="currentUser && currentUser._id === team.coach._id" type="submit" (click)="deleteTeam(team)" class="btn btn-danger">Verwijderen</button>
+            </td>
+        </tr>
+    </table>
+</div>

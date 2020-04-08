@@ -1,0 +1,66 @@
+<div style="text-align:center">
+    <h1>
+        Team aanmaken
+    </h1>
+    <form [formGroup]="teamForm" novalidate>
+        <div class="form-group">
+            <label class="center-block">Naam:
+                <input class="form-control" formControlName="name" type="text">
+                <div
+                    *ngIf="teamForm.controls['name'].invalid && (teamForm.controls['name'].dirty || teamForm.controls['name'].touched)">
+                    <div *ngIf="teamForm.controls['name'].errors.required">
+                        Naam is vereist.
+                    </div>
+                </div>
+            </label>
+        </div>
+        <div class="form-group">
+            <label class="center-block">Stad:
+                <input class="form-control" formControlName="city" type="text">
+                <div
+                    *ngIf="teamForm.controls['city'].invalid && (teamForm.controls['city'].dirty || teamForm.controls['city'].touched)">
+                    <div *ngIf="teamForm.controls['city'].errors.required">
+                        Stad is vereist.
+                    </div>
+                </div>
+            </label>
+        </div>
+        <div class="form-group">
+            <mat-form-field>
+                <mat-label>Geslacht:</mat-label>
+                <mat-select formControlName="gender">
+                    <mat-option value="men">
+                        Mannen
+                    </mat-option>
+                    <mat-option value="women">
+                        Vrouwen
+                    </mat-option>
+                    <mat-option value="mixed">
+                        Gemixt
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div
+                *ngIf="teamForm.controls['gender'].invalid && (teamForm.controls['gender'].dirty || teamForm.controls['gender'].touched)">
+                <div *ngIf="teamForm.controls['gender'].errors.required">
+                    Geslacht is vereist.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="center-block">Beschrijving:
+                <input class="form-control" formControlName="description" type="text">
+                <div
+                    *ngIf="teamForm.controls['description'].invalid && (teamForm.controls['description'].dirty || teamForm.controls['description'].touched)">
+                    <div *ngIf="teamForm.controls['description'].errors.required">
+                        Beschrijving is vereist.
+                    </div>
+                </div>
+            </label>
+        </div>
+        <button type="submit" (click)="onSubmit()" [disabled]="teamForm.pristine || teamForm.invalid"
+            class="btn btn-success">
+            Aanmaken
+        </button>
+    </form>
+</div>

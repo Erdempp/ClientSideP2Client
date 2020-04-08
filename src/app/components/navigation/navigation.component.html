@@ -1,10 +1,11 @@
 <div id="navbar">
+    <button mat-button routerLink="/about">Over</button>
     <button mat-button routerLink="/teams">Teams</button>
     <button mat-button routerLink="/fields">Velden</button>
-    <button mat-button routerLink="/competitions">Wedstrijden</button>
+    <button mat-button routerLink="/matches">Wedstrijden</button>
+    <div class="right">
+        <button mat-button routerLink="/register" *ngIf="!currentUser">Registreren</button>
+        <button mat-button routerLink="/login" *ngIf="!currentUser">Inloggen</button>
+        <button mat-button (click)="logout()" *ngIf="currentUser">Uitloggen</button>
+    </div>
 </div>
-<nav>
-    <a routerLink="/teams">Teams </a>
-    <a routerLink="/fields">Velden </a>
-    <a routerLink="/competitions">Wedstrijden </a>
-</nav>

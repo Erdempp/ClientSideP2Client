@@ -1,0 +1,10 @@
+.field {
+    border: thin solid rgba(0, 0, 0, 0.5);
+    padding: 1%;
+    margin-bottom: 5%;
+    text-align: left;
+}
+
+.title {
+    background-color: rgba(118, 163, 55, 0.5);
+}

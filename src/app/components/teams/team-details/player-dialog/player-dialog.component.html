@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Faciliteit toevoegen</h1>
+<div mat-dialog-content>
+    <p>Welke speler wilt u toevoegen?</p>
+    <mat-form-field>
+        <mat-label>Speler</mat-label>
+        <mat-select [(ngModel)]="data.player">
+            <mat-option *ngFor="let player of players; index as i" [value]="player">
+                {{ player.name }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Annuleren</button>
+    <button mat-button [mat-dialog-close]="data.player" cdkFocusInitial>Opslaan</button>
+</div>

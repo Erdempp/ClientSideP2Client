@@ -1,0 +1,39 @@
+<h1>{{ team?.name }}</h1>
+<div fxLayout="column" fxLayoutAlign="">
+    <table class="resourceTable" rules="rows">
+        <tr>
+            <th>Stad</th>
+            <td>{{ team?.city }}</td>
+        </tr>
+        <tr>
+            <th>Coach</th>
+            <td>{{ team?.coach?.name }}</td>
+        </tr>
+        <tr>
+            <th>Spelers</th>
+            <td>
+                <ul>
+                    <li *ngFor="let player of team?.players; index as i">
+                        {{ player.name }}
+                        <button *ngIf="currentUser && currentUser._id === team?.coach?._id" type="submit" (click)="removePlayer(player)" class="btn btn-danger">X</button>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>Geslacht</th>
+            <td>{{ team?.gender }}</td>
+        </tr>
+        <tr>
+            <th>Beschrijving</th>
+            <td>{{ team?.description }}</td>
+        </tr>
+        <tr>
+            <th>Opties</th>
+            <td>
+                <button *ngIf="currentUser && currentUser._id === team?.coach?._id" type="submit" (click)="openDialog()" class="btn btn-success">Speler toevoegen</button>
+                <button [routerLink]="['/teams']" class="btn btn-info">Terug naar lijst</button>
+            </td>
+        </tr>
+    </table>
+</div>
