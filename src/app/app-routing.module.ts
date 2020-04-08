@@ -12,9 +12,10 @@ import { FieldsComponent } from './components/fields/fields.component';
 import { FieldDetailsComponent } from './components/fields/field-details/field-details.component';
 import { CreateFieldComponent } from './components/fields/create-field/create-field.component';
 import { EditFieldComponent } from './components/fields/edit-field/edit-field.component';
-
-import { PlaceholderComponent } from './components/placeholder/placeholder.component';
-
+import { MatchesComponent } from './components/matches/matches.component';
+import { CreateMatchComponent } from './components/matches/create-match/create-match.component';
+import { EditMatchComponent } from './components/matches/edit-match/edit-match.component';
+import { MatchDetailsComponent } from './components/matches/match-details/match-details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/about', pathMatch: 'full' },
@@ -63,9 +64,23 @@ const routes: Routes = [
   },
   {
     path: 'matches',
-    component: PlaceholderComponent,
+    component: MatchesComponent,
     canActivate: [AuthGuard],
-    children: [{ path: ':id', component: PlaceholderComponent }],
+  },
+  {
+    path: 'matches/:id',
+    component: MatchDetailsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'create-match',
+    component: CreateMatchComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'edit-match',
+    component: EditMatchComponent,
+    canActivate: [AuthGuard]
   },
   { path: '**', redirectTo: '/about' }, // PageNotFoundComponent
 ];

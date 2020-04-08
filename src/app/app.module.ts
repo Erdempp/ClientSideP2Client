@@ -17,7 +17,6 @@ import { MatInputModule } from '@angular/material/input';
 
 import { AppComponent } from './app.component';
 import { AboutComponent } from './components/about/about.component';
-import { PlaceholderComponent } from './components/placeholder/placeholder.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
@@ -34,12 +33,15 @@ import { FieldDetailsComponent } from './components/fields/field-details/field-d
 import { FacilityDialogComponent } from './components/fields/field-details/facility-dialog/facility-dialog.component';
 import { TeamDetailsComponent } from './components/teams/team-details/team-details.component';
 import { PlayerDialogComponent } from './components/teams/team-details/player-dialog/player-dialog.component';
+import { MatchesComponent } from './components/matches/matches.component';
+import { CreateMatchComponent } from './components/matches/create-match/create-match.component';
+import { EditMatchComponent } from './components/matches/edit-match/edit-match.component';
+import { MatchDetailsComponent } from './components/matches/match-details/match-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutComponent,
-    PlaceholderComponent,
     NavigationComponent,
     RegisterComponent,
     LoginComponent,
@@ -53,6 +55,10 @@ import { PlayerDialogComponent } from './components/teams/team-details/player-di
     FacilityDialogComponent,
     TeamDetailsComponent,
     PlayerDialogComponent,
+    MatchesComponent,
+    CreateMatchComponent,
+    EditMatchComponent,
+    MatchDetailsComponent,
   ],
   imports: [
     BrowserModule,

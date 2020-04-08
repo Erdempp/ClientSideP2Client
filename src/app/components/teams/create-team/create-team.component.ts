@@ -21,8 +21,7 @@ export class CreateTeamComponent implements OnInit {
     this.createForm();
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   get form() {
     return this.teamForm.controls;
@@ -51,7 +50,7 @@ export class CreateTeamComponent implements OnInit {
       )
       .pipe(first())
       .subscribe(
-        (data) => {
+        () => {
           this.router.navigate(['teams']);
         },
         (error) => {

@@ -33,10 +33,6 @@ export class FieldsComponent implements OnInit {
     this.router.navigate(['create-field']);
   }
 
-  fieldDetails(field: Field) {
-    this.router.navigate(['fields'], { queryParams: { id: field._id } });
-  }
-
   editField(field: Field) {
     localStorage.removeItem('editFieldId');
     localStorage.setItem('editFieldId', field._id);
@@ -44,7 +40,7 @@ export class FieldsComponent implements OnInit {
   }
 
   deleteField(field: Field) {
-    this.fieldService.delete(field._id).subscribe((data) => {
+    this.fieldService.delete(field._id).subscribe(() => {
       this.fields = this.fields.filter((f) => f !== field);
     });
   }

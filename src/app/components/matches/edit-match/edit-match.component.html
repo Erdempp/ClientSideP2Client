@@ -1,0 +1,68 @@
+<div style="text-align:center">
+    <h1>
+        Wedstrijd bewerken
+    </h1>
+    <form [formGroup]="matchForm" novalidate>
+        <div id="hidden">
+            <input class="form-control" formControlName="_id" type="text">
+        </div>
+        <div class="form-group">
+            <mat-form-field>
+                <mat-label>Bezoekende team:</mat-label>
+                <mat-select formControlName="awayTeam">
+                    <mat-option *ngFor="let team of teams" [value]="team._id">
+                        {{ team.name }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div
+                *ngIf="matchForm.controls['awayTeam'].invalid && (matchForm.controls['awayTeam'].dirty || matchForm.controls['awayTeam'].touched)">
+                <div *ngIf="matchForm.controls['awayTeam'].errors.required">
+                    Bezoekende team is vereist.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <mat-form-field>
+                <mat-label>Veld:</mat-label>
+                <mat-select formControlName="field">
+                    <mat-option *ngFor="let field of fields" [value]="field._id">
+                        {{ field.name }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div
+                *ngIf="matchForm.controls['field'].invalid && (matchForm.controls['field'].dirty || matchForm.controls['field'].touched)">
+                <div *ngIf="matchForm.controls['field'].errors.required">
+                    Veld is vereist.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="center-block">Starttijd:
+                <input class="form-control" formControlName="startDateTime" type="datetime-local">
+                <div
+                    *ngIf="matchForm.controls['startDateTime'].invalid && (matchForm.controls['startDateTime'].dirty || matchForm.controls['startDateTime'].touched)">
+                    <div *ngIf="matchForm.controls['startDateTime'].errors.required">
+                        Starttijd is vereist.
+                    </div>
+                </div>
+            </label>
+        </div>
+        <div class="form-group">
+            <label class="center-block">Eindtijd:
+                <input class="form-control" formControlName="endDateTime" type="datetime-local">
+                <div
+                    *ngIf="matchForm.controls['endDateTime'].invalid && (matchForm.controls['endDateTime'].dirty || matchForm.controls['endDateTime'].touched)">
+                    <div *ngIf="matchForm.controls['endDateTime'].errors.required">
+                        Eindtijd is vereist.
+                    </div>
+                </div>
+            </label>
+        </div>
+        <button type="submit" (click)="onSubmit()" [disabled]="matchForm.pristine || matchForm.invalid"
+            class="btn btn-success">
+            Bewerken
+        </button>
+    </form>
+</div>

@@ -7,7 +7,7 @@ import { first } from 'rxjs/operators';
 @Component({
   selector: 'app-edit-field',
   templateUrl: './edit-field.component.html',
-  styleUrls: ['./edit-field.component.css']
+  styleUrls: ['./edit-field.component.css'],
 })
 export class EditFieldComponent implements OnInit {
   fieldForm: FormGroup;
@@ -69,7 +69,7 @@ export class EditFieldComponent implements OnInit {
       })
       .pipe(first())
       .subscribe(
-        (data) => {
+        () => {
           this.router.navigate(['fields']);
         },
         (error) => {

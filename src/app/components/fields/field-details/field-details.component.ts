@@ -13,9 +13,8 @@ import { FacilityDialogComponent } from './facility-dialog/facility-dialog.compo
   templateUrl: './field-details.component.html',
   styleUrls: ['./field-details.component.css'],
 })
-export class FieldDetailsComponent implements OnInit, OnDestroy {
+export class FieldDetailsComponent implements OnInit {
   private id: string;
-  private sub: Subscription;
   private field: Field;
   currentUser: User;
   facility: string;
@@ -51,7 +50,7 @@ export class FieldDetailsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.sub = this.route.params.subscribe((params) => {
+    this.route.params.subscribe((params) => {
       this.id = params.id;
     });
 
@@ -69,9 +68,5 @@ export class FieldDetailsComponent implements OnInit, OnDestroy {
       }
       this.currentUser = user;
     });
-  }
-
-  ngOnDestroy(): void {
-    this.sub.unsubscribe();
   }
 }
