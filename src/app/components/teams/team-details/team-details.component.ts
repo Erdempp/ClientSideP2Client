@@ -61,6 +61,12 @@ export class TeamDetailsComponent implements OnInit {
     });
   }
 
+  removePlayer(player: User) {
+    this.teamService.removePlayer(this.team._id, player).subscribe((team) => {
+      this.team = team;
+    });
+  }
+
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       this.id = params.id;

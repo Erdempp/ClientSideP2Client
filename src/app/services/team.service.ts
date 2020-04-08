@@ -22,6 +22,11 @@ export class TeamService {
     return this.http.post<Team>(`${environment.api}/teams/${id}/players`, { playerId: player._id });
   }
 
+  removePlayer(id: Team['_id'], player: Team['players'][0]) {
+    // Use put because .delete does not accept a body
+    return this.http.put<Team>(`${environment.api}/teams/${id}/players`, { playerId: player._id });
+  }
+
   getAll() {
     return this.http.get<Team[]>(`${environment.api}/teams`);
   }

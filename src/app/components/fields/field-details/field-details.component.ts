@@ -46,7 +46,13 @@ export class FieldDetailsComponent implements OnInit {
   addFacility() {
     this.fieldService.addFacility(this.field._id, this.facility).subscribe((field) => {
       this.field = field;
-    })
+    });
+  }
+
+  removeFacility(facility: string) {
+    this.fieldService.removeFacility(this.field._id, facility).subscribe((field) => {
+      this.field = field;
+    });
   }
 
   ngOnInit(): void {

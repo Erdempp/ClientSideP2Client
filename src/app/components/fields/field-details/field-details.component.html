@@ -19,6 +19,7 @@
                 <ul>
                     <li *ngFor="let facility of field?.facilities; index as i">
                         {{ facility }}
+                        <button *ngIf="currentUser && currentUser._id === field?.owner?._id" type="submit" (click)="removeFacility(facility)" class="btn btn-danger">X</button>
                     </li>
                 </ul>
             </td>

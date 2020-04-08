@@ -29,6 +29,11 @@ export class FieldService {
     return this.http.post<Field>(`${environment.api}/fields/${id}/facilities`, { facility });
   }
 
+  removeFacility(id: Field['_id'], facility: Field['facilities'][0]) {
+    // Use put because .delete does not accept a body
+    return this.http.put<Field>(`${environment.api}/fields/${id}/facilities`, { facility });
+  }
+
   getAll() {
     return this.http.get<Field[]>(`${environment.api}/fields`);
   }

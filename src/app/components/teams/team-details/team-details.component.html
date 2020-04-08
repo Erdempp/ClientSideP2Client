@@ -15,6 +15,7 @@
                 <ul>
                     <li *ngFor="let player of team?.players; index as i">
                         {{ player.name }}
+                        <button *ngIf="currentUser && currentUser._id === team?.coach?._id" type="submit" (click)="removePlayer(player)" class="btn btn-danger">X</button>
                     </li>
                 </ul>
             </td>
