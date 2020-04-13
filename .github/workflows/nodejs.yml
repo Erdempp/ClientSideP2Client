@@ -27,6 +27,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
     - name: SonarScanner
 #     We do not run yarn test since the tests will fail anyways.
 #     - run: yarn test
