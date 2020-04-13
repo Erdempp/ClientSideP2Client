@@ -29,9 +29,3 @@ jobs:
       env:
         SONAR_LOGIN_KEY: ${{ secrets.SonarLoginKey }}
         SONAR_PROJECT_KEY: ${{ secrets.SonarProjectKey }}
-    - name: Deploy to Heroku
-      env:
-        HEROKU_API_KEY: ${{ secrets.HerokuApiKey }}
-      run: |
-        git remote add heroku https://heroku:${{ env.HEROKU_API_KEY }}@git.heroku.com/voetbalvereniging.git
-        git push heroku HEAD:master -f
