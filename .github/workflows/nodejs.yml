@@ -33,6 +33,5 @@ jobs:
       env:
         HEROKU_API_KEY: ${{ secrets.HerokuApiKey }}
       run: |
-        heroku container:login
-        heroku container:push -a voetbalvereniging web
-        heroku container:release -a voetbalvereniging web
+        git remote add heroku https://heroku:${{ env.HerokuApiKey }}@git.heroku.com/voetbalvereniging.git
+        git push heroku HEAD:master -f
