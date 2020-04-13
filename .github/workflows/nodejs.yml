@@ -24,6 +24,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+      env:
+        SONAR_LOGIN_KEY: ${{ secrets.SONAR_LOGIN_KEY }}
+        SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
     - run: yarn
 #     - run: npm run build --if-present
 # We do not run yarn test since the tests will fail anyways.
