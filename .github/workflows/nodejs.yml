@@ -22,10 +22,16 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: yarn
-#   - run: npm run build --if-present
+    - name: Run tests and SonarScanner
 #     We do not run yarn test since the tests will fail anyways.
 #     - run: yarn test
-    - run: yarn sonar
+      run: yarn sonar
       env:
         SONAR_LOGIN_KEY: ${{ secrets.SonarLoginKey }}
         SONAR_PROJECT_KEY: ${{ secrets.SonarProjectKey }}
+    - name: Deploy to Heroku
+      env:
+        HEROKU_API_KEY: ${{ secrets.HerokuApiKey }}
+      run: |
+        git remote add heroku https://heroku:${{ env.HEROKU_API_KEY }}@git.heroku.com/voetbalvereniging.git
+        git push heroku HEAD:master -f
