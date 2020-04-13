@@ -3,7 +3,7 @@
     Nieuwe team aanmaken
 </button>
 <div fxLayout="column" fxLayoutAlign="">
-    <p *ngIf="!teams || teams && !teams.length > 0">
+    <p *ngIf="!teams || teams && !(teams.length > 0)">
         Geen teams beschikbaar.
     </p>
     <table class="resourceTable" *ngFor="let team of teams; index as i">

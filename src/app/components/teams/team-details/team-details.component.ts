@@ -14,8 +14,8 @@ import { PlayerDialogComponent } from './player-dialog/player-dialog.component';
 })
 export class TeamDetailsComponent implements OnInit {
   private id: string;
-  private team: Team;
   private teamPlayerIds: string[];
+  team: Team;
   currentUser: User;
   player: User;
   players: User[];

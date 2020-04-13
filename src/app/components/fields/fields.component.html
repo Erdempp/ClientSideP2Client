@@ -3,7 +3,7 @@
     Nieuw veld aanmaken
 </button>
 <div fxLayout="column" fxLayoutAlign="">
-    <p *ngIf="!fields || fields && !fields.length > 0">
+    <p *ngIf="!fields || fields && !(fields.length > 0)">
         Geen velden beschikbaar.
     </p>
     <table class="resourceTable" *ngFor="let field of fields; index as i" rules="rows">

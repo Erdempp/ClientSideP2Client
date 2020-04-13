@@ -15,7 +15,7 @@ import { FacilityDialogComponent } from './facility-dialog/facility-dialog.compo
 })
 export class FieldDetailsComponent implements OnInit {
   private id: string;
-  private field: Field;
+  field: Field;
   currentUser: User;
   facility: string;
 

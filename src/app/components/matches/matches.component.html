@@ -3,7 +3,7 @@
     Nieuwe wedstrijd aanmaken
 </button>
 <div fxLayout="column" fxLayoutAlign="">
-    <p *ngIf="!matches || matches && !matches.length > 0">
+    <p *ngIf="!matches || matches && !(matches.length > 0)">
         Geen wedstrijden beschikbaar.
     </p>
     <table class="resourceTable" *ngFor="let match of matches; index as i" rules="rows">
