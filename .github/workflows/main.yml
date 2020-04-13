@@ -20,8 +20,6 @@ jobs:
 
     # Runs a set of commands using the runners shell
     - name: Test, Sonar
-      env:
-        NODE_ENV: development
       run: |
         yarn test
         yarn sonar
